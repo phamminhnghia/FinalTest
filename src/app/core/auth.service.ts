@@ -10,7 +10,7 @@ import { User } from './user.model'
 
 @Injectable()
 export class AuthService {
-  constructor(public afAuth: AngularFireAuth, public afs: AngularFirestore) {}
+  constructor(public afAuth: AngularFireAuth, public afs: AngularFirestore) { }
 
   async doGoogleLogin() {
     let provider = new firebase.auth.GoogleAuthProvider()
@@ -26,7 +26,14 @@ export class AuthService {
       .signInWithEmailAndPassword(value.email, value.password)
     return this.updateUserData(credential.user)
   }
-
+  doRegister(value) {
+    return new Promise<any>((resolve, reject) => {
+      firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
+        .then(res => {
+          resolve(res);
+        }, err => reject(err))
+    })
+  }
   doLogout() {
     return new Promise((resolve, reject) => {
       if (firebase.auth().currentUser) {

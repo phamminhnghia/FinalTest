@@ -36,7 +36,7 @@ export class UserService {
     const data: User = {
       uid: user.uid,
       email: user.email,
-      displayName: user.displayName,
+      displayName: value.displayName,
       photoURL: user.photoURL,
       studentId: value.studentId
     }

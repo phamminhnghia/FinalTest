@@ -1,0 +1,26 @@
+<div class="main">
+  <div class="main-w3l">
+
+    <div class="w3layouts-main">
+      <h2><span>Register now</span></h2>
+      <form [formGroup]="signupform">
+
+        <input placeholder="Email" type="email" formControlName="email">
+
+        <input placeholder="Password" type="password" formControlName="password">
+
+
+
+        <input type="submit" (click)='trySignup(signupform.value)'>
+      </form>
+    </div>
+    <!-- //main -->
+
+    <!-- //password-script -->
+
+    <!--footer-->
+
+    <!--//footer-->
+
+  </div>
+</div>

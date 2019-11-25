@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-12 pt-3">
+        <p>Thời Gian Làm Bài</p>
+
+        <div class="card" *ngFor="let item2 of lists |paginate: { itemsPerPage: 1, currentPage: p }">
+          <div class="card-header">
+            <span id='h'></span> :
+            <span id='m'></span> :
+            <span id='s'></span>
+
+          </div>
+          <div class="card-body">
+            <blockquote class="blockquote ">
+              <p class="float-left">
+                {{item2&&item2.Text}}
+              </p>
+
+            </blockquote>
+
+          </div>
+          <hr style="width: 80%; margin: 0 auto">
+          <div class="card-body ">
+            <!-- <blockquote class="blockquote  ps"> -->
+
+            <label class="container " *ngFor="let item3 of item2.Answers ">
+              <input type="radio" name="radio" value="{{item3.Id }}" [(ngModel)]="answers[p-1]">
+              <span class="checkmark"> {{item3.Text}}</span>
+            </label>
+
+
+
+            <!-- </blockquote> -->
+          </div>
+
+
+        </div>
+        <div class="card-header ps">
+          <p>MARKS: {{mark}}/80</p>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+        <button type="button" class="btn {{isEdit? 'btn-danger' : 'btn-primary disable'}}"
+          (click)='isEdit? start() : stop() '>{{isEdit? 'Bắt Đầu' : 'Kết Thúc'}}</button>
+        <button class="btn btn-danger " (click)='submit()'>Submit</button>
+      </div>
+
+    </div>
+
+  </div>

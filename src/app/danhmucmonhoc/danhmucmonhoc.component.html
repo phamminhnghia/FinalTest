@@ -1,0 +1,64 @@
+<app-head></app-head>
+<div class="container">
+
+  <br>
+
+  <div class="row">
+    <div class="col-md-8">
+
+      <div class="col-md-6" style="float: left"
+        *ngFor="let item of lists | paginate: { itemsPerPage: 4, currentPage: p }" [routerLink]="['/dm',item.Id]"
+        routerLinkActive="router-link-active">
+        <div class="card">
+          <img src="../../assets/images/{{item.Logo}}" class="card-img-top" alt="...">
+          <div class="card-body">
+
+          </div>
+          <ul class="list-group list-group-flush">
+            <button type="button" class="btn btn-secondary" onclick="ttt()"
+              routerLink="/tracnghiem/{{item.Id}}">{{item.Name}}
+            </button>
+          </ul>
+        </div>
+
+      </div>
+
+
+
+
+      <div class="row">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+
+    </div>
+    <!-- end col-md-8 -->
+
+    <div class="col-md-4">
+
+      <div class="accordion" id="accordionExample">
+        <div class="card">
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <ul class="list-group">
+              <li class="list-group-item" data-toggle="collapse" data-target="#demo"><i class="fa fa-align-left"
+                  style="font-size:24px"> Danh Mục Môn Học</i>
+                <div id="demo" class="collapse">
+                  <ul class="list-group" *ngFor="let item of lists">
+                    <a href="#" class="list-group-item list-group-item-action">{{item.Name}}</a>
+
+                  </ul>
+                </div>
+            </ul>
+          </div>
+        </div>
+
+
+      </div>
+      <!-- end card accordion -->
+    </div>
+    <!-- end col-md-4 -->
+  </div>
+
+  <br>
+
+
+</div>

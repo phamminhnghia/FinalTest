@@ -1,0 +1,57 @@
+<div class="container">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav" style="justify-content: space-between">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+
+                    <a class="nav-link" [routerLink]="['/dm']"> <i class='fa fa-home' style='font-size:20px'></i>
+                        Trang
+                        Chủ</a>
+                </li>
+                <li class="nav-item ">
+                    <!--thêm active nó sẽ kh lick được  nav-item active-->
+                    <a class="nav-link" [routerLink]="['/gioithieu']"><i style="font-size:20px" class="fa">&#xf03a;</i>
+                        Giới Thiệu
+                        <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/lienhe']" routerLinkActive="router-link-active"><i
+                            class='fa fa-phone' style='font-size:20px'></i>
+                        Liên Hệ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/gopy']" routerLinkActive="router-link-active"><i
+                            class='fa fa-envelope' style='font-size:20px'></i> Góp
+                        Ý</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/gopy']" routerLinkActive="router-link-active" tabindex="-1"
+                        aria-disabled="true"><i class='fa fa-question-circle' style='font-size:20px'></i>
+                        Hỏi Đáp</a>
+                </li>
+
+            </ul>
+            <div class="btn-group" style="float: right">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    {{user.displayName}}
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#" [routerLink]="['/update']"
+                        routerLinkActive="router-link-active">Cập nhập tài khoản</a>
+                    
+                    <a (click)="logout()" class="dropdown-item">Đăng Xuất</a>
+                    <div class="dropdown-divider"></div>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+</div>
