@@ -42,8 +42,8 @@
           <pagination-controls (pageChange)="p = $event"></pagination-controls>
         </div>
         <button type="button" class="btn {{isEdit? 'btn-danger' : 'btn-primary disable'}}"
-          (click)='isEdit? start() : stop() '>{{isEdit? 'Bắt Đầu' : 'Kết Thúc'}}</button>
-        <button class="btn btn-danger " (click)='submit()'>Submit</button>
+          (click)='isEdit? start() : stop() '>{{isEdit? 'Bắt Đầu' : 'Submit'}}</button>
+        
       </div>
 
     </div>
