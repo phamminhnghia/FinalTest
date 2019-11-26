@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
+import { UserService } from '../core/user.service';
+import { Router } from '@angular/router'
 
 
 @Component({
@@ -22,12 +24,13 @@ export class ThiComponent implements OnInit {
   result = {
     mark: 0
   }
-  mark =0
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+  mark = 0
+  constructor(private route: ActivatedRoute, private http: HttpClient, private User: UserService, private router: Router) { }
   toggleEdit() {
     this.isEdit = !this.isEdit;
   }
   ngOnInit() {
+
     this.isEdit = true
 
     this.route.paramMap.subscribe(params => {
@@ -83,16 +86,10 @@ export class ThiComponent implements OnInit {
         mark += this.lists[i].Marks
       }
     }
-    console.log(mark)
+    this.User.point = mark
+    this.router.navigate(['/result'])
   }
-  submit() {
-    for (let i = 0; i < this.lists.length; ++i) {
-      if (this.lists[i].AnswerId == this.answers[i]) {
-        this.mark += this.lists[i].Marks
-      }
-    }
-    console.log(this.mark)
-  }
+
 
 }
 

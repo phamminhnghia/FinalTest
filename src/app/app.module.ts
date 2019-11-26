@@ -23,9 +23,10 @@ import { ThiComponent } from './thi/thi.component';
 import { HeadComponent } from './head/head.component';
 import { DangkiComponent } from './dangki/dangki.component';
 import { UpdateComponent } from './update/update.component';
+import { KetquaComponent } from './ketqua/ketqua.component';
 // import {MatRadioModule} from '@angular/material/radio';
 @NgModule({
-  declarations: [AppComponent, LoginComponent, UserComponent, DangnhapComponent, DanhmucmonhocComponent, ThiComponent, HeadComponent, DangkiComponent, UpdateComponent],
+  declarations: [AppComponent, LoginComponent, UserComponent, DangnhapComponent, DanhmucmonhocComponent, ThiComponent, HeadComponent, DangkiComponent, UpdateComponent, KetquaComponent],
   imports: [
     BrowserModule,
     NgxPaginationModule,
@@ -36,6 +37,7 @@ import { UpdateComponent } from './update/update.component';
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       // { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
       { path: 'login', component: DangnhapComponent, },
+      { path: 'result', component: KetquaComponent, },
       { path: 'dm', component: DanhmucmonhocComponent, resolve: { data: UserResolver } },
       { path: 'dm/:Id', component: ThiComponent, resolve: { data: UserResolver } },
       { path: 'dangki', component: DangkiComponent, },

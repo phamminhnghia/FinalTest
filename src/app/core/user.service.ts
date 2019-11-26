@@ -10,15 +10,16 @@ import { User } from './user.model'
 
 @Injectable()
 export class UserService {
+  point;
   constructor(
     public db: AngularFirestore,
     public afAuth: AngularFireAuth,
     public afs: AngularFirestore
-  ) {}
+  ) { }
 
   getCurrentUser() {
     return new Promise<any>((resolve, reject) => {
-      var user = firebase.auth().onAuthStateChanged(function(user) {
+      var user = firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
           resolve(user)
         } else {
@@ -56,7 +57,7 @@ export class UserService {
         }
         return null
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log('Error getting document:', error)
         return null
       })
